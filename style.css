@@ -1,0 +1,405 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #f59e0b;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --bg-light: #f8fafc;
+  --bg-card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  color: white;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: slideInUp 1s ease 0.3s forwards;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: slideInUp 1s ease 0.5s forwards;
+}
+
+.hero-buttons {
+  opacity: 0;
+  animation: slideInUp 1s ease 0.7s forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Styles */
+.section {
+  padding: 80px 0;
+}
+
+.section:nth-child(even) {
+  background: var(--bg-light);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Card Styles */
+.demo-card {
+  background: var(--bg-card);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+}
+
+.demo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.demo-card h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Code Block */
+.code-block {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  font-family: "Monaco", "Menlo", monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  position: relative;
+}
+
+.code-block::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 12px;
+  height: 12px;
+  background: #ef4444;
+  border-radius: 50%;
+  box-shadow: 20px 0 0 #f59e0b, 40px 0 0 #10b981;
+}
+
+.code-block code {
+  padding-top: 20px;
+  display: block;
+}
+
+/* Interactive Elements */
+.interactive-demo {
+  background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem 0;
+  border: 2px dashed var(--primary-color);
+}
+
+.color-demo {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.color-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.color-box:hover {
+  transform: scale(1.1);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* JavaScript Demo Styles */
+.js-demo {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* .calculator {
+            max-width: 300px;
+            margin: 2rem auto;
+        }
+
+        .calculator input {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .calculator .btn {
+            width: 60px;
+            height: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2px;
+        } */
+
+.calculator {
+  max-width: 320px;
+  margin: 2rem auto;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+#display {
+  width: 100%;
+  height: 56px;
+  font-size: 1.4rem;
+  text-align: right;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+}
+
+.calc-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  grid-auto-rows: 60px;
+  /* each row height */
+}
+
+/* keep Bootstrap button color classes if present, but size/spacing via this class */
+.calc-btn {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Make "=" span two rows (tall button on the right) */
+.btn-equals {
+  grid-row: 4 / span 2;
+  grid-column: 4 / 5;
+  align-self: stretch;
+  justify-self: stretch;
+}
+
+/* Make "0" span two columns (wide zero) */
+.btn-zero {
+  grid-column: 1 / span 2;
+}
+
+/* Responsive: shrink on very small screens */
+@media (max-width: 360px) {
+  .calculator {
+    max-width: 280px;
+  }
+
+  .calc-keys {
+    gap: 6px;
+    grid-auto-rows: 52px;
+  }
+
+  #display {
+    height: 48px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Footer */
+footer {
+  background: var(--text-primary);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Utility Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
